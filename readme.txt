@@ -20,3 +20,16 @@ node package is node-mongodb-native,
 zie http://mongodb.github.io/node-mongodb-native
 docs zie: http://mongodb.github.io/node-mongodb-native/3.1/api/index.html
 
+
+
+/// /// /// GIT /// /// ///
+in hoofdfolder (1 keer):
+    git init
+voeg een file toe"
+    .gitignore
+in deze file zet:
+    node_modules/
+
+cmd: git status -> dit laat files zien die door git niet getracked worden
+cmd: git add . ->voeg alle niet tracked files toe aan git
+cmd: git add package.json -> voeg een specifieke file toe aan git
