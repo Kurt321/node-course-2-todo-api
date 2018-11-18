@@ -23,6 +23,11 @@ docs zie: http://mongodb.github.io/node-mongodb-native/3.1/api/index.html
 
 
 /// /// /// GIT /// /// ///
+
+//-- 1-malig --//
+
+install git
+    https://git-scm.com/download/win
 zet de terminal naar bash via shift-ctrl-p -> Terminal: select default terminal -> git bash
 ssh opzet, zie ook https://help.github.com/articles/connecting-to-github-with-ssh/
 nakijken of je een goede ssh key hebt (zitten meestal in de user dir):
@@ -36,16 +41,24 @@ De key toevoegen aan de ssh agent:
 De Pub key toevoegen aan github -> login -> settings -> SSH and GPG keys -> geef een titel en copy de inhoud van de pub key -> add ssh key
 connecteer met github via:
     ssh -T git@github.com -> yes, en er moet staan 'Hi Kurt321! You've successfully authenticated, but GitHub does not provide shell access.'
+
+//-- 1-malig per project --//
+
 in hoofdfolder (1 keer per project):
     git init
 voeg een file toe"
     .gitignore
 in deze file zet:
     node_modules/
+in github voeg een repository toe, je krijgt een scherm met info over push an exisiting repository from the command line.  deze 2 cmd's copy pasten in bash
+    git remote add origin git@github.com:Kurt321/node-course-2-todo-api.git
+    git push -u origin master
+
+//-- per wijziging --//
 
 cmd: git status -> dit laat files zien die door git niet getracked worden
 cmd: git add . ->voeg alle niet tracked files toe aan git
 cmd: git add package.json -> voeg een specifieke file toe aan git
 
 cmd: git commit -m 'test4' -> commit de changes
-cmd: push
+cmd: git push -u origin master
