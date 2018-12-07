@@ -31,6 +31,8 @@ https://httpstatuses.com/
 
 /// /// /// test modules /// /// ///
 npm i expect mocha nodemon supertest --save-dev
+starting: npm run test-watch
+this will trigger the tests on every save
 
 /// /// /// GIT /// /// ///
 
