@@ -29,6 +29,8 @@ installs express and body parser (parses body into a JSON)
 
 https://httpstatuses.com/
 
+/// /// /// test modules /// /// ///
+npm i expect mocha nodemon supertest --save-dev
 
 /// /// /// GIT /// /// ///
 
