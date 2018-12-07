@@ -20,6 +20,14 @@ node package is node-mongodb-native,
 zie http://mongodb.github.io/node-mongodb-native
 docs zie: http://mongodb.github.io/node-mongodb-native/3.1/api/index.html
 
+mongoose: https://mongoosejs.com/
+npm install mongoose --save
+
+npm i express body-parser --save
+installs express and body parser (parses body into a JSON)
+
+
+https://httpstatuses.com/
 
 
 /// /// /// GIT /// /// ///
