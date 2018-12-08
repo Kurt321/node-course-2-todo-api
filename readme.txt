@@ -80,4 +80,15 @@ use the const port = process.env.PORT || 3000; in server.json
 add the start script and engine spec to package.json
 op command line (terminal in visual code), run command: heroku Create
 om een mongodb te maken, run command(terminal in visual code): heroku addons:create mongolab:sandbox
+na dit is de URI: mongolab-flexible-74143
+wijzig mongoose.js in db folder en gebruik de env om af te testen of de app op heroku draait en dan deze db te gebruiken
+https://www.udemy.com/the-complete-nodejs-developer-course-2/learn/v4/t/lecture/5677890?start=0
 zie ook https://elements.heroku.com/addons/mongolab
+
+om de app naar heroku te krijgen command: git push heroku master
+in de log zie je:
+    remote: -----> Launching...
+    remote:        Released v5
+    remote:        https://sleepy-oasis-89524.herokuapp.com/ deployed to Heroku
+dat is de URL van de app, deze kan je gebruiken in postman, bv https://sleepy-oasis-89524.herokuapp.com/todos
+om de deploy op heroku na te kijken, command: heroku logs
