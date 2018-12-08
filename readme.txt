@@ -74,3 +74,10 @@ cmd: git add package.json -> voeg een specifieke file toe aan git
 
 cmd: git commit -m 'test4' -> commit de changes
 cmd: git push -u origin master
+
+//-- deploy to heroku --//
+use the const port = process.env.PORT || 3000; in server.json
+add the start script and engine spec to package.json
+op command line (terminal in visual code), run command: heroku Create
+om een mongodb te maken, run command(terminal in visual code): heroku addons:create mongolab:sandbox
+zie ook https://elements.heroku.com/addons/mongolab

@@ -7,6 +7,7 @@ var {User} = require('./models/user');
 const {ObjectID} = require('mongodb');
 
 var app = express();
+const port = process.env.PORT || 3000;  //this is the port on heroku, if you run it local, the port env var is not available and 3000 is used
 
 app.use(bodyParser.json());
 
@@ -49,8 +50,8 @@ app.get('/todos/:id', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('started on port 3000');
+app.listen(port, () => {
+    console.log(`Started up at port ${port}`);
 });
 
 
