@@ -1,5 +1,7 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+const _ = require('lodash');
+const express = require('express');
+const bodyParser = require('body-parser');
+
 
 var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
@@ -65,6 +67,34 @@ app.delete('/todos/:id', (req, res) => {
         res.status(400).send(e);
     });
 });
+
+app.patch('/todos/:id', (req, res) => {
+    var id = req.params.id;
+    var body = _.pick(req.body, ['text', 'completed']);  // we only use text and completed from the body as the user isn't allowed to update an id
+
+    if (!ObjectID.isValid(id)) {
+        console.log(id);
+        return res.status(404).send();
+    }
+
+    if (_.isBoolean(body.completed) && body.completed) {
+        //if the completed tag is a boolean and is true, then we add axtra info to the body
+        body.completedAt = new Date().getTime(); // add extra tag to the body
+    } else {
+        //if the completed tag is a boolean and is false, then we clear the completed and completed at tag, so if a todo was already completed, it is blanked out
+        body.compleded = false;
+        body.completedAt = null;
+    }
+
+    Todo.findByIdAndUpdate(id, {$set: body}, {new: true}).then((todo) => {
+        if (!todo) {
+            return res.status(404).send();
+        }
+        res.send({todo});
+    }).catch((e) => {
+        res.status(400).send();
+    })
+})
 
 app.listen(port, () => {
     console.log(`Started up at port ${port}`);
